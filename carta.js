@@ -19,10 +19,10 @@ const cartaStyle = StyleSheet.create({
         backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',      
-        borderRadius: 20,
-        width:'60%',
-        height:'100%',
-        flexDirection:"row"
+        borderRadius: 20,      
+        flexDirection:"row",
+        width:'100%',
+        height:'100%'
       },
     number: {   
         flex: 2,
