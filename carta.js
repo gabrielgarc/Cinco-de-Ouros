@@ -6,9 +6,7 @@ export default class Carta extends Component{
         return(            
         <View style={cartaStyle.frente}>
             <Text style={cartaStyle.number}>5</Text> 
-            <Image 
-            style={{width: 72, height: 100, flex:1, resizeMode: 'stretch', alignContent: 'flex-start'}}
-            source={require('./assets/Card_diamond.svg.png')}></Image>
+            <Suit></Suit>
         </View>        
         )
     }
