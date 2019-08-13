@@ -6,9 +6,31 @@ export default class Suit extends Component{
         return(            
         <View style={cartaStyle.frente}>           
             <Image 
-            style={{width: 72, height: 100, flex:1, resizeMode: 'stretch', alignContent: 'flex-start'}}
+            style={{ resizeMode: 'stretch',width: 72, height: 100}}
             source={require('./assets/Card_diamond.svg.png')}></Image>
         </View>        
         )
     }
 }
+
+const cartaStyle = StyleSheet.create({
+    frente: {    
+        backgroundColor: 'white',
+        alignItems: 'center',
+        justifyContent: 'center',      
+        borderRadius: 20,      
+        flexDirection:"row",
+       
+      },
+    number: {   
+        flex: 2,
+        alignItems: 'center',
+        justifyContent: 'center', 
+        fontSize: 50,
+        color: 'red',
+        fontWeight: 'bold',
+        textAlign: 'center',
+        textAlignVertical: 'center'
+      }
+    }
+)

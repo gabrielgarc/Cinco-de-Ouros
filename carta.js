@@ -1,12 +1,13 @@
 import {StyleSheet, View, Text, Image} from 'react-native';
 import React, {Component} from 'react';
+import Suit from './suit'
 
 export default class Carta extends Component{
     render(){
         return(            
         <View style={cartaStyle.frente}>
-            <Text style={cartaStyle.number}>5</Text> 
-            <Suit></Suit>
+            <Text style={cartaStyle.number}>{this.props.numero}</Text> 
+            <Suit style={{flex: 1, }}></Suit>
         </View>        
         )
     }
@@ -23,10 +24,10 @@ const cartaStyle = StyleSheet.create({
         height:'100%'
       },
     number: {   
-        flex: 2,
+        flex: 3,
         alignItems: 'center',
         justifyContent: 'center', 
-        fontSize: 260,
+        fontSize: 150,
         color: 'red',
         fontWeight: 'bold',
         textAlign: 'center',
