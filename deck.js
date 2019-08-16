@@ -8,7 +8,8 @@ export default class Deck extends Component{
         number: 0,
         suit: 'COSTAS',
         deck: [],
-        deckBuilt: false
+        deckBuilt: false,
+        drawed: 0
       }
 
       componentDidMount(){
@@ -21,6 +22,8 @@ export default class Deck extends Component{
               tmp.push({number: i, suit: 'espadas'});
           }
           
+          tmp = this.shuffleDeck(20, tmp);
+
           this.setState({
             deck: [...this.state.deck, ...tmp],
             deckBuilt: true
@@ -29,26 +32,39 @@ export default class Deck extends Component{
       }
 
       onPress = () => {
+            
+        var num = this.state.deck[this.state.drawed].number;
+        var sui = this.state.deck[this.state.drawed].suit;
 
-        var rand = Math.floor(Math.random() * this.state.deck.length - 1) + 1;
-    
-        var num = this.state.deck[rand].number;
-        var sui = this.state.deck[rand].suit;
+
         this.setState({
           number: num,
-          suit: sui
+          suit: sui,
+          drawed: this.state.drawed + 1
         });
-        console.log('>>>>BUCETAO');
-        var count = this.state.deck.filter(c => c.number == num && c.suit ==sui).length;
-        console.log(count);
-    
       }
+
+      getRandomInt = (min, max) => {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+      shuffleDeck(shuffleCnt, deckToShuffle) {
+        for(var i = 0; i < shuffleCnt; i++) {
+            var rndNo = this.getRandomInt(1, 52);
+            var card = deckToShuffle[i];
+            deckToShuffle[i] = deckToShuffle[rndNo];
+            deckToShuffle[rndNo] = card;
+        }
+
+        return deckToShuffle;
+      }
+
 
     render(){
         return(            
         <View style={{width: '60%', height: '100%'}} >
             <TouchableHighlight onPress={this.onPress} style={{width: '100%', height: '100%'}}>
-            <Carta numero={this.state.number}  ></Carta>
+            <Carta numero={this.state.number}  naipe={this.state.suit}></Carta>
             </TouchableHighlight>
             
         </View>     

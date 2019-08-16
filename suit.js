@@ -4,14 +4,30 @@ import React, {Component} from 'react';
 export default class Suit extends Component{
     render(){
         return(            
-        <View style={cartaStyle.frente}>           
-            <Image 
+        <View style={cartaStyle.frente}>  
+           <Image 
             style={{ resizeMode: 'stretch',width: 72, height: 100}}
-            source={require('./assets/Card_diamond.svg.png')}></Image>
+            source={this.resolveImage(this.props.naipe)}></Image>
         </View>        
         )
     }
+
+    resolveImage(naipe){
+        switch(naipe){
+            case 'ouros':
+                return require('./assets/diamonds.png') ;
+            case 'paus':
+                return require('./assets/clubs.png') ;
+            case 'espadas':
+                return require('./assets/spades.png') ;
+            case 'copas':
+                return require('./assets/hearts.png') ;
+        }
+        
+    }
 }
+
+
 
 const cartaStyle = StyleSheet.create({
     frente: {    

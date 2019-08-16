@@ -7,7 +7,7 @@ export default class Carta extends Component{
         return(            
         <View style={cartaStyle.frente}>
             <Text style={cartaStyle.number}>{this.props.numero}</Text> 
-            <Suit style={{flex: 1, }}></Suit>
+            <Suit style={{flex: 1 }} naipe = {this.props.naipe}></Suit>
         </View>        
         )
     }
